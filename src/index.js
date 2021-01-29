@@ -1,17 +1,33 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+function Score() {
+  const [value, setvalue] = React.useState(true)
+
+  function inc() {
+    setvalue((preVal) => preVal+1);
+
+  }
+
+  function dec() {
+    setvalue((preVal) => preVal-1);
+
+  }
+  return (
+    <div >
+    <h1>socore:</h1>
+        <button onClick={inc}>Add +</button>
+        <div>{value}</div>
+        <button onClick={dec}>Subtract -</button>
+
+    </div>
+  )
+
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <Score/>,
+  document.querySelector('#root')
+)
